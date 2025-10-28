@@ -1,0 +1,36 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+
+model Bukti {
+  id             String    @id @default(cuid())
+  code           String    @unique
+  kategori       String
+  deskripsi      String
+  link           String?
+  unit           String?
+  pic            String?
+  tglDiterima    DateTime?
+  validitas      Validitas @default(BELUM)
+  catatan        String?
+  permintaanId   String?
+  permintaan     Permintaan? @relation(fields: [permintaanId], references: [id])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Permintaan {
+  id             String   @id @default(cuid())
+  code           String   @unique
+  deskripsi      String
+  tenggat        DateTime?
+  waktuText      String?
+  pic            String?
+  status         StatusPermintaan @default(BELUM)
+  tglPemenuhan   DateTime?
+  bukti          Bukti[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+enum Validitas { VALID PERBAIKAN BELUM }
+enum StatusPermintaan { TERPENUHI BELUM }

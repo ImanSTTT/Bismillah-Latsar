@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { color-scheme: dark; }
+html, body, :root { height:100%; background:#0F1720; color:#E2E8F0; }
+.container { @apply max-w-7xl mx-auto px-6; }
+.card { @apply bg-[#141C26] rounded-xl border border-white/5; }
+.input { @apply bg-[#0c121a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-[#A0AEC0] focus:outline-none focus:ring-2 focus:ring-indigo-400/50; }
+.btn { @apply inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500 disabled:opacity-50; }
+.btn-ghost { @apply inline-flex items-center gap-2 rounded-xl bg-transparent px-3 py-2 text-sm text-white border border-white/10 hover:bg-white/5; }
+.badge { @apply px-2 py-0.5 rounded-full text-xs font-medium; }
+.badge-green { @apply badge bg-green-500/20 text-green-300; }
+.badge-yellow { @apply badge bg-yellow-500/20 text-yellow-300; }
+.badge-red { @apply badge bg-red-500/20 text-red-300; }
+.table { @apply w-full text-sm; } .table th { @apply text-left text-[#A0AEC0] font-medium py-3 border-b border-white/10; } .table td { @apply py-4 border-b border-white/5; }
+.progress { @apply h-2 rounded-full bg-white/10; } .progress > span { @apply block h-2 rounded-full bg-indigo-500; }
